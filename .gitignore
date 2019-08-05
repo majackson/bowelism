@@ -3,6 +3,9 @@
 .idea
 .DS_Store
 
+*.swp
+*.swo
+
 static/
 
 production.env
