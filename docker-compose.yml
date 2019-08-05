@@ -1,0 +1,78 @@
+version: '2'
+services:
+    log-producer:
+        container_name: bowelism_log_producer
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: bash -c "source ~/.venvs/bowelismvenv/bin/activate && python3 manage.py log_producer"
+        env_file:
+            - production.env
+        environment:
+            - PYTHONUNBUFFERED=1
+            - DEBUG
+            - ADMIN
+            - PRODUCTION
+        volumes:
+            - .:/code
+            
+    web:
+        container_name: bowelism_web
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: bash -c "source ~/.venvs/bowelismvenv/bin/activate && uwsgi --http :8000 --module bowelism.wsgi --socket :8001"
+        env_file:
+            - production.env
+        environment:
+            - PYTHONUNBUFFERED=1
+            - DEBUG
+            - ADMIN
+            - PRODUCTION
+        volumes:
+            - .:/code
+            - ./static:/static
+        ports:
+            - "8000:8000"
+            - "8001:8001"
+        depends_on:
+            - web-asgi
+
+
+    web-asgi:
+        container_name: bowelism_web_asgi
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: bash -c "source ~/.venvs/bowelismvenv/bin/activate && daphne -b 0.0.0.0 -p 8002 bowelism.asgi:application"
+        env_file:
+            - production.env
+        environment:
+            - PYTHONUNBUFFERED=1
+            - DEBUG
+            - ADMIN
+            - PRODUCTION
+        volumes:
+            - .:/code
+            - ./static:/static
+        ports:
+            - "8002:8002"
+        depends_on:
+            - log-producer
+            - redis
+
+    redis:
+        container_name: bowelism_redis
+        image: redis
+        ports:
+          - "6379:6379"
+
+    server:
+        container_name: bowelism_server
+        build: .dockerfiles/nginx
+        ports:
+            - "80:80"
+        volumes:
+           - ./static:/static
+        depends_on:
+            - web

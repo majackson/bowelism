@@ -1,0 +1,81 @@
+body, html {
+    height: 100%
+}
+
+body {
+    margin: 10px;
+    background-color: black;
+}
+
+.log-lines {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+
+.log-line {
+    font-family: DOS, Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 16px;
+    color: #bbbbbb;
+}
+
+.log-line.this-user {
+    color: yellow;
+}
+
+.hidden, .template {
+    display: none;
+}
+
+.bio {
+    background-color: #555555;
+    width: 500px;
+    z-index: 2;
+    padding: 15px;
+
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.bio__image {
+    float: left;
+    padding-right: 10px;
+}
+
+.bio__image .photo-me {
+    height: 200px;
+}
+
+.bio__text {
+    margin-top: -20px;
+    color: #ccc;
+}
+
+.bio__social_icons {
+    position: absolute;
+    bottom: 15px;
+}
+
+.center {
+    position:absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    height: 345px;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.social-button {
+    width: 40px;
+    margin-right: 5px;
+}
+
+.social-button:hover, social-button:active {
+   filter: brightness(1.12); 
+}
