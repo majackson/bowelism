@@ -23,13 +23,7 @@ run:
 	ADMIN=TRUE DEBUG=TRUE docker-compose up
 
 serve:
-	docker-compose start
-
-serve-restart:
-	docker-compose restart
+	docker-compose up -d
 
 serve-stop:
 	docker-compose stop
-
-test:
-	docker-compose run --name bowelism_web_tests --rm web bash -c 'source ~/.venvs/bowelismvenv/bin/activate && py.test --strict $${TEST_ARGS:-"tests/"}'
