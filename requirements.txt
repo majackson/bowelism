@@ -3,7 +3,7 @@ uWSGI==2.0.15
 djangorestframework==3.9.1
 django-storages==1.6.5
 django-ses==0.8.4
-Jinja2==2.10.1
+Jinja2==2.11.3
 setuptools==38.2.4
 raven==6.4.0
 channels==2.2.0
