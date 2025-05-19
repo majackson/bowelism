@@ -1,4 +1,3 @@
-version: '2'
 services:
     log-producer:
         container_name: bowelism_log_producer

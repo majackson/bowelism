@@ -1,9 +1,8 @@
-FROM python:3.7
+FROM python:3.13
 ENV PYTHONUNBUFFERED 1
 
 # install packages
 RUN apt-get update
-RUN apt-get install -y netcat ntpdate
 RUN pip install virtualenv
 
 RUN mkdir /code

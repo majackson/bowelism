@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from bowelism.api.views.heartbeat import heartbeat
 
 
 urlpatterns = [
-    url(r'^heartbeat/$', heartbeat, name='heartbeat'),
+    re_path(r'^heartbeat/$', heartbeat, name='heartbeat'),
 ]

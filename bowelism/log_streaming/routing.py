@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from bowelism.log_streaming import consumers
 
 
 websocket_urlpatterns = [
-    url(r'^ws/log-streaming', consumers.LogStreamingConsumer)
+    re_path(r'^ws/log-streaming', consumers.LogStreamingConsumer.as_asgi())
 ]
