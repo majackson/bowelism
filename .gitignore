@@ -9,3 +9,4 @@
 static/
 
 production.env
+.env

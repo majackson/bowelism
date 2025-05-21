@@ -1,18 +1,22 @@
-from datetime import datetime, timedelta
-from time import sleep
+from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
-
-
-SLEEP_PERIOD = 0.5
-REOPEN_FILE_AFTER = timedelta(hours=1)  # reopen the file to allow log rotation etc
-
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
+from pygtail import Pygtail
 
 channel_layer = get_channel_layer()
+
+
+class LogHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        if event.src_path.endswith(settings.STREAMED_LOG_FILE):
+            for line in Pygtail(event.src_path):
+                distribute_messages([line])
 
 
 class Command(BaseCommand):
@@ -22,23 +26,13 @@ class Command(BaseCommand):
     )
 
     def handle(self, *args, **kwargs):
-        while True:
-            with open(settings.STREAMED_LOG_FILE, 'r') as log_file:
-                opened_time = datetime.now()
+        for _ in Pygtail(str(Path(settings.STREAMED_LOG_PATH, settings.STREAMED_LOG_FILE))):
+            pass  # ensure file offset is all the way to the bottom of the file when we start
 
-                # consumers already send existing contents when they first open,
-                # so we can throw initial log contents away.
-                # we only want new stuff as it appears.
-                log_file.read()
-
-                while True:  # continue periodically polling for changes
-                    if (datetime.now() - opened_time) > REOPEN_FILE_AFTER:
-                        break
-
-                    sleep(SLEEP_PERIOD)
-                    log_entries = log_file.read().splitlines()
-                    if log_entries:
-                        distribute_messages(log_entries)
+        observer = Observer()
+        observer.schedule(LogHandler(), settings.STREAMED_LOG_PATH, recursive=False)
+        observer.start()
+        observer.join(timeout=None)  # block until stopped
 
 
 def distribute_messages(messages):

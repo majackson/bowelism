@@ -1,5 +1,7 @@
 import json
 
+from pathlib import Path
+
 from django.conf import settings
 
 from channels.generic.websocket import WebsocketConsumer
@@ -14,7 +16,8 @@ class LogStreamingConsumer(WebsocketConsumer):
 
     def connect(self):
         self.accept()
-        with open(settings.STREAMED_LOG_FILE, 'r') as log_file:
+        with open(Path(settings.STREAMED_LOG_PATH, settings.STREAMED_LOG_FILE), 'r') as log_file:
+            # send the last n lines to the client when they connect
             self.send(json.dumps(log_file.read().splitlines()[-INITIAL_LOG_LINES:]))
 
     def log_lines(self, event):

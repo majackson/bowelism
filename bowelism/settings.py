@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -101,7 +102,8 @@ REST_FRAMEWORK = {
     )
 }
 
-STREAMED_LOG_FILE = os.environ.get('STREAMED_LOG_FILE', 'test_log.txt')
+STREAMED_LOG_PATH = os.environ.get('STREAM_PATH')
+STREAMED_LOG_FILE = os.environ.get('STREAMED_LOG_FILE', 'access.log')
 STREAMING_LOG_GROUP = 'log_streaming'
 
 if PRODUCTION:

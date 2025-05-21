@@ -15,7 +15,7 @@ shell:
 	DJANGO_CMD=shell make django
 
 bootstrap:
-	cp -n production.env.template production.env; true && \
+	cp -n .env.template .env; true && \
 	make dev-build staticfiles
 
 run:
