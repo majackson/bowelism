@@ -6,13 +6,16 @@
 
     document.log_streaming = {
         LOG_STREAM_URI: 'ws://' + window.location.host + '/ws/log-streaming/',
-        LOG_LINE_TEMPLATE: "log-line-template",
+        TEMPLATE_CLASS: 'template',
+        LOG_LINE_TEMPLATE_ID: "terminal-text-line-template",
+        LOG_LINES_CONTAINER_CLASS: 'terminal-text',
+        LOG_LINE_THIS_USER_CLASS: 'this-user',
         REMOTE_IP: "{{ remote_ip }}",
         log_lines_container: null,
         log_stream_socket: null,
 
         init: function() {
-            this.log_lines_container = document.getElementsByClassName('log-lines')[0];
+            this.log_lines_container = document.getElementsByClassName(this.LOG_LINES_CONTAINER_CLASS)[0];
             this.log_stream_socket = new WebSocket(this.LOG_STREAM_URI)
             this.log_stream_socket.onmessage = e => {
                 let lines = JSON.parse(e.data);
@@ -33,12 +36,12 @@
         },
 
         received_log_line: function(line) {
-            let log_line_elem = document.getElementById(this.LOG_LINE_TEMPLATE).cloneNode();
+            let log_line_elem = document.getElementById(this.LOG_LINE_TEMPLATE_ID).cloneNode();
             log_line_elem.removeAttribute("id");
-            log_line_elem.classList.remove('template');
+            log_line_elem.classList.remove(this.TEMPLATE_CLASS);
 
             if (line.includes(this.REMOTE_IP)) {  // highlight requests coming from this user
-                log_line_elem.classList.add('this-user');
+                log_line_elem.classList.add(this.LOG_LINE_THIS_USER_CLASS);
             }
 
             log_line_elem.innerText = line;
@@ -56,23 +59,44 @@
 {% endblock %}
 
 {% block content %}
-<div class="log-lines">
-</div>
-
-<div class="bio center">
-    <div class="bio__image"><img src="{% static "img/matt_sm.jpg" %}" class="photo-me" alt="Picture of Matt Jackson"></div>
-    <div class="bio__text">
-        <h2>Hi, I'm Matt.</h2>
-        <p>I'm a software engineer primarily working with <strong>Python</strong>. I have a particular background building APIs for mobile apps, but I am a bit of a jack-of-all-trades, and I enjoy new challenges.</p>
-        <p>I have a strong competency in <strong>Computer Science/Algorithms</strong>, and also have experience in <strong>building and managing effective software teams</strong>. <strong>Containerisation</strong> and <strong>Serverless</strong> are some of my favourite tools.</p>
-        <p class="strong">I work as a contractor, and am available for new contracts now.</p>
-    </div>
-    <div class="bio__social_icons">
-        <a href="https://github.com/majackson"><img src="{% static "img/github.png" %}" alt="GitHub" class="social-button social-button__github"></a>
-        <a href="https://www.linkedin.com/in/mattajackson/"><img src="{% static "img/linkedin.png" %}" alt="LinkedIN" class="social-button social-button__linkedin"></a>
-        <a href="http://cv.mattjackson.uk"><img src="{% static "img/cv.png" %}" alt="Curriculum Vitae" class="social-button social-button__cv"></a>
+<div class="terminal-container">
+    <div class="terminal-text">
     </div>
 </div>
+<div id="terminal-text-line-template" class="template terminal-text-line"></div>
 
-<p id="log-line-template" class="template log-line"></p>
+<main class="content-container">
+    <div class="content-card">
+        <header>
+            <h1>Hi, I'm Matt</h1>
+        </header>
+
+        <section class="bio-section">
+        <div class="bio-content">
+            <div class="bio-text">
+                <p>I'm a UK-based Software Engineering Manager based in Bristol and London. I thrive in Engineering organisations at the intersection of Technology, People, and Process.</p>
+                <p>Prior to Engineering Leadership, I worked for more than ten years as a backend contributor, most significantly within the Python ecosystem, but at times I have worked full-stack and even had a brief stint as a mobile Engineer.</p>
+                <p><em>Yes, the background of this page is the live-scrolling HTTP logs of this server – it was a fun project to put together!</em></p>
+            </div>
+            <div class="bio-image">
+                <img src="{% static "img/matt_sm.jpg" %}" alt="Matt's photo" />
+            </div>
+        </div>
+        </section>
+
+        <section class="social-links">
+            <div class="links-grid">
+                <a href="https://www.linkedin.com/in/mattajackson/" class="social-link">
+                    <span class="link-icon"><img src="{% static "img/linkedin.png" %}" alt="LinkedIn" /></span>
+                    <span class="link-text">LinkedIn</span>
+                </a>
+                <a href="https://github.com/majackson" class="social-link">
+                    <span class="link-icon"><img src="{% static "img/github.png" %}" alt="GitHub" /></span>
+                    <span class="link-text">GitHub</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
 {% endblock %}
