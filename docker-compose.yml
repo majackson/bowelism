@@ -62,14 +62,12 @@ services:
     redis:
         container_name: bowelism_redis
         image: redis
-        ports:
-          - "6379:6379"
 
     server:
         container_name: bowelism_server
         build: .dockerfiles/nginx
         ports:
-            - "80:80"
+            - "8888:80"
         volumes:
            - ./static:/static
         depends_on:
