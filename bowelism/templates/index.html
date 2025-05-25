@@ -5,7 +5,7 @@
 <script type="text/javascript">
 
     document.log_streaming = {
-        LOG_STREAM_URI: (window.location.protocol == 'https'? 'wss://': 'ws://') + window.location.host + '/ws/log-streaming/',
+        LOG_STREAM_URI: (window.location.protocol.includes('https')? 'wss://': 'ws://') + window.location.host + '/ws/log-streaming/',
         TEMPLATE_CLASS: 'template',
         LOG_LINE_TEMPLATE_ID: "terminal-text-line-template",
         LOG_LINES_CONTAINER_CLASS: 'terminal-text',
