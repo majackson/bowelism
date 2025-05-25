@@ -5,7 +5,7 @@
 <script type="text/javascript">
 
     document.log_streaming = {
-        LOG_STREAM_URI: 'ws://' + window.location.host + '/ws/log-streaming/',
+        LOG_STREAM_URI: (window.location.protocol == 'https'? 'wss://': 'ws://') + window.location.host + '/ws/log-streaming/',
         TEMPLATE_CLASS: 'template',
         LOG_LINE_TEMPLATE_ID: "terminal-text-line-template",
         LOG_LINES_CONTAINER_CLASS: 'terminal-text',
@@ -74,7 +74,7 @@
         <section class="bio-section">
         <div class="bio-content">
             <div class="bio-text">
-                <p>I'm a UK-based Software Engineering Manager based in Bristol and London. I thrive in Engineering organisations at the intersection of Technology, People, and Process.</p>
+                <p>I'm a UK-based Software Engineering Manager based in Bristol and London. I thrive in Engineering organisations at the intersection of technology, people, and process.</p>
                 <p>Prior to Engineering Leadership, I worked for more than ten years as a backend contributor, most significantly within the Python ecosystem, but at times I have worked full-stack and even had a brief stint as a mobile Engineer.</p>
                 <p><em>Yes, the background of this page is the live-scrolling HTTP logs of this server – it was a fun project to put together!</em></p>
             </div>
