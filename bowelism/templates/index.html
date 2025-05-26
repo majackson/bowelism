@@ -7,9 +7,15 @@
     document.log_streaming = {
         LOG_STREAM_URI: (window.location.protocol.includes('https')? 'wss://': 'ws://') + window.location.host + '/ws/log-streaming/',
         TEMPLATE_CLASS: 'template',
+        HIDDEN_CLASS: 'hidden',
         LOG_LINE_TEMPLATE_ID: "terminal-text-line-template",
         LOG_LINES_CONTAINER_CLASS: 'terminal-text',
         LOG_LINE_THIS_USER_CLASS: 'this-user',
+        SECTION_CLASSES: {
+            'intro': 'content-card-intro',
+            'bowelism': 'content-card-bowelism',
+            'user-manual': 'content-card-user-manual',
+        },
         REMOTE_IP: "{{ remote_ip }}",
         log_lines_container: null,
         log_stream_socket: null,
@@ -47,12 +53,30 @@
             log_line_elem.innerText = line;
 
             this.log_lines_container.appendChild(log_line_elem);
+        },
+
+        show_sections: function() {
+            let active_section = window.location.pathname.split('/').pop();
+            if (window.location.hash) {
+                active_section = window.location.hash.split('#').pop();
+            }
+            if(!active_section) { active_section = 'intro'; }
+
+            // show only relevent section
+            for (let [_, section_class] of Object.entries(this.SECTION_CLASSES)) {
+                document.getElementsByClassName(section_class)[0].classList.add(this.HIDDEN_CLASS);
+            }
+            document.getElementsByClassName(this.SECTION_CLASSES[active_section])[0].classList.remove(this.HIDDEN_CLASS);
         }
 
     };
 
     document.addEventListener("DOMContentLoaded", function(){
         document.log_streaming.init();
+    });
+
+    window.addEventListener("hashchange", function(){
+        document.log_streaming.show_sections();
     });
 
 </script>
@@ -66,36 +90,23 @@
 <div id="terminal-text-line-template" class="template terminal-text-line"></div>
 
 <main class="content-container">
-    <div class="content-card">
-        <header>
-            <h1>Hi, I'm Matt</h1>
-        </header>
-
-        <section class="bio-section">
-        <div class="bio-content">
-            <div class="bio-text">
-                <p>I'm a UK-based Software Engineering Manager based in Bristol and London. I thrive in Engineering organisations at the intersection of technology, people, and process.</p>
-                <p>Prior to Engineering Leadership, I worked for more than ten years as a backend contributor, most significantly within the Python ecosystem, but at times I have worked full-stack and even had a brief stint as a mobile Engineer.</p>
-                <p><em>Yes, the background of this page is the live-scrolling HTTP logs of this server – it was a fun project to put together!</em></p>
-            </div>
-            <div class="bio-image">
-                <img src="{% static "img/matt_sm.jpg" %}" alt="Matt's photo" />
-            </div>
-        </div>
-        </section>
-
-        <section class="social-links">
-            <div class="links-grid">
-                <a href="https://www.linkedin.com/in/mattajackson/" class="social-link">
-                    <span class="link-icon"><img src="{% static "img/linkedin.png" %}" alt="LinkedIn" /></span>
-                    <span class="link-text">LinkedIn</span>
-                </a>
-                <a href="https://github.com/majackson" class="social-link">
-                    <span class="link-icon"><img src="{% static "img/github.png" %}" alt="GitHub" /></span>
-                    <span class="link-text">GitHub</span>
-                </a>
-            </div>
-        </section>
+    <div class="content-card content-card-intro{% if content == 'bowelism' or content == 'user-manual' %} hidden{% endif %}">
+        {% include 'content/intro.html' %}
+        {% with content='intro' %}
+            {% include 'social_links.html' %}
+        {% endwith %}
+    </div>
+    <div class="content-card content-card-bowelism{% if content != 'bowelism' %} hidden{% endif %}">
+        {% include 'content/bowelism.html' %}
+        {% with content='bowelism' %}
+            {% include 'social_links.html' %}
+        {% endwith %}
+    </div>
+    <div class="content-card content-card-user-manual{% if content != 'user-manual' %} hidden{% endif %}">
+        {% include 'content/user_manual.html' %}
+        {% with content='user-manual' %}
+            {% include 'social_links.html' %}
+        {% endwith %}
     </div>
 </main>
 

@@ -1,0 +1,25 @@
+{% load static %}
+<section class="social-links">
+    <div class="links-grid">
+        <a href="#intro" class="social-link{% if content != 'bowelism' and content != 'user-manual' %} hidden{% endif %} social-link-intro">
+            <span class="link-icon">🌍</span>
+            <span class="link-text">mattjackson.uk</span>
+        </a>
+        <a href="#bowelism" class="social-link{% if content == 'bowelism' %} hidden{% endif %} social-link-bowelism">
+            <span class="link-icon">📄</span>
+            <span class="link-text">About This Page</span>
+        </a>
+        <a href="#user-manual" class="social-link{% if content == 'user-manual' %} hidden{% endif %} social-link-user-manual">
+            <span class="link-icon">✍️</span>
+            <span class="link-text">Personal User Manual</span>
+        </a>
+        <a href="https://www.linkedin.com/in/mattajackson/" class="social-link">
+            <span class="link-icon"><img src="{% static "img/linkedin.png" %}" alt="LinkedIn" /></span>
+            <span class="link-text">LinkedIn</span>
+        </a>
+        <a href="https://github.com/majackson" class="social-link">
+            <span class="link-icon"><img src="{% static "img/github.png" %}" alt="GitHub" /></span>
+            <span class="link-text">GitHub</span>
+        </a>
+    </div>
+</section>
