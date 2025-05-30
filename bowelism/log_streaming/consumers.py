@@ -7,7 +7,7 @@ from django.conf import settings
 from channels.generic.websocket import WebsocketConsumer
 
 
-INITIAL_LOG_LINES = 40  # send the last n lines when a client first connects
+INITIAL_LOG_LINES = 60  # send the last n lines when a client first connects
 
 
 class LogStreamingConsumer(WebsocketConsumer):
