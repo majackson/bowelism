@@ -1,14 +1,21 @@
 {% load static %}
+{% load markdown_deux_tags %}
 <header>
-    <h1>About this page</h1>
+    <h1>What is this page?</h1>
 </header>
 
 <section class="bio-section">
     <div class="bio-content">
         <div class="bio-text">
-            Bowelism
+            {% markdown %}
+            {% include 'content/markdown/bowelism.md' %}
+            {% endmarkdown %}
         </div>
         <div class="bio-image">
+            <figure>
+                <img src="{% static "img/lloyds_building.jpg" %}" alt="Lloyd's building" />
+                <figcaption>Lloyd's building in London, an example of 'Bowellist' architecture.</figcaption>
+            </figure>
         </div>
     </div>
 </section>

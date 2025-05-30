@@ -11,3 +11,5 @@ channels-redis==4.2.1
 daphne==4.2.0
 watchdog==6.0.0
 pygtail==0.14.0
+django-markdown-deux==1.0.6
+markdown2==2.5.3

@@ -25,6 +25,8 @@ INSTALLED_APPS = ((['django.contrib.admin'] if ADMIN else []) + [
     'rest_framework',
     'rest_framework.authtoken',
 
+    'markdown_deux',
+
     'channels',
     'bowelism.api',
     'bowelism.log_streaming',

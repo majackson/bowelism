@@ -111,6 +111,20 @@ h1 {
   font-weight: 600;
 }
 
+h2 {
+  font-size: 1.5rem;
+  color: var(--cyan);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--base00);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
 .bio-section {
   margin-bottom: 2rem;
 }
@@ -128,6 +142,11 @@ h1 {
 .bio-image {
   flex: 2;
   max-width: 180px;
+}
+
+.content-card-user-manual .bio-image {
+  padding-left: 1.5rem;
+  float: right;
 }
 
 .bio-image figure {
@@ -159,13 +178,6 @@ h1 {
 .bio-text p {
   margin-bottom: 1rem;
   color: var(--base01);
-}
-
-h2 {
-  font-size: 1.5rem;
-  color: var(--cyan);
-  margin-bottom: 1rem;
-  font-weight: 600;
 }
 
 .links-grid {

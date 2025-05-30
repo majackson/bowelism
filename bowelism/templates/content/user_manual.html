@@ -1,13 +1,21 @@
+{% load static %}
+{% load markdown_deux_tags %}
 <header>
-    <h1>Personal User Manual</h1>
+    <h1>Matt Jackson - Manager README</h1>
 </header>
 
 <section class="bio-section">
     <div class="bio-content">
         <div class="bio-text">
-            Personal User Manual
-        </div>
-        <div class="bio-image">
+            <div class="bio-image">
+                <figure>
+                    <img src="{% static "img/matt_sm.jpg" %}" alt="Matt Jackson, a manager." />
+                    <figcaption>Matt Jackson, a manager.</figcaption>
+                </figure>
+            </div>
+            {% markdown %}
+{% include 'content/markdown/user-manual.md' %}
+            {% endmarkdown %}
         </div>
     </div>
 </section>

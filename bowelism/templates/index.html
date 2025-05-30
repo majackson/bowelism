@@ -98,15 +98,19 @@
     </div>
     <div class="content-card content-card-bowelism{% if content != 'bowelism' %} hidden{% endif %}">
         {% include 'content/bowelism.html' %}
+        {% comment %}
         {% with content='bowelism' %}
             {% include 'social_links.html' %}
         {% endwith %}
+        {% endcomment %}
     </div>
     <div class="content-card content-card-user-manual{% if content != 'user-manual' %} hidden{% endif %}">
         {% include 'content/user_manual.html' %}
+        {% comment %}
         {% with content='user-manual' %}
             {% include 'social_links.html' %}
         {% endwith %}
+        {% endcomment %}
     </div>
 </main>
 
