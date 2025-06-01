@@ -17,6 +17,7 @@
   --cyan: #2aa198;
   --green: #859900;
   --soft-sand: #e7e1d4;
+  --desaturated-teal: #4c9aaf;
 }
 
 * {
@@ -120,7 +121,7 @@ h2 {
 
 h3 {
   font-size: 1.2rem;
-  color: var(--base00);
+  color: var(--desaturated-teal);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
