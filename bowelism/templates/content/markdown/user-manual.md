@@ -1,12 +1,12 @@
 
 *Last updated May 2025*
 
-I first came across "Manager READMEs" and "Personal User Manuals" in my role at Tarabut. They are a great way to "soft introduce" managers to new teams and individuals, giving an opportunity for teams to build familiarity with their new manager from a comfortable distance.
+I first came across "Manager READMEs" and "Personal User Manuals" in my previous role at [Tarabut](https://tarabut.com). I think they are a great way to "soft introduce" managers to new teams and individuals, giving an opportunity for teams to build familiarity with their new manager from a comfortable distance.
 
 ## My Background
-Prior to my career as a manager, I operated for more than ten years as a Backend Engineer, most significantly working with the Python stack. I worked in a range of different industries, including broadcasting, fashion, transport and fintech. I’ve spent most of my career in tech startups – I really enjoy the energy, urgency, and constant evolution that come with working in lean, fast-moving teams. These are environments which lean heavily towards continuous learning, adaptability, and building great relationships with colleagues along the way.
+Prior to my career as a manager, I operated for more than ten years as a Backend Engineer, most significantly working with the Python stack. I worked in a range of different industries, including broadcasting, fashion, transport and fintech. I’ve spent most of my career in tech startups – I really enjoy the energy, urgency, and constant evolution that come with working in lean, fast-moving teams. I find that these are environments which benefit from a heavy lean towards continuous learning, adaptability, and building great relationships with colleagues along the way.
 
-I live in Brisol in the west of England, though I am originally from sunny Tooting in south-west London.
+I live in Bristol in the west of England, though I am originally from sunny Tooting in south-west London.
 
 ## My approach
 
@@ -35,17 +35,17 @@ I'm aware that different reports will be comfortable with different frequencies 
 
 I'm an advocate of **people over process**, and encourage the teams I support to continually revise our working process in order to best serve our moving fast, and shipping quickly, reliably, and safely.
 
-In the past, I've had success working in Scrum-like and Kanban-like formations. But I believe that teams are as unique as the people that compose them, and I don't believe in any "one size fits all" development process. So when I'm supporting your team, you can expect for me to advocate taking time to periodically revise and refine our working processes together. In instances when I perceive the team to be experiencing problems, missing deliveries, or otherwise struggling, you can expect me to be more direct in debugging and making process improvement suggestions. Even in these cases, I will be soliciting your feedback throughout and I always want to hear your perspective, especially if you disagree!
+In the past, I've had success working in Scrum-like and Kanban-like formations. But I believe that teams are as unique as the people that compose them, and I don't believe in any "one size fits all" development process. So when I'm supporting your team, you can expect for me to advocate taking time to periodically revise and refine our working processes together. In instances when I perceive the team to be experiencing problems, missing deliveries, or otherwise struggling, you can expect me to be more hands-on in debugging and making process improvement suggestions. Even in these cases, I will be soliciting your feedback throughout and I always want to hear your perspective, especially if you disagree!
 
 ### When things go wrong
 
-While we always aim for things to go right, we should be well-prepared handle the impact when things don't go to plan.
+While we always aim for things to go right, we should be well-prepared to handle the impact when things don't go to plan.
 
-In the event that you have bad news to bring me - please bring it sooner rather than later. This gives us both the opportunity to take the right corrective actions faster. I can also promise that I'll aim to be understanding even when you feel you have made mistakes. I'm a big believer in psychological safety as an enabler to a constructive engineering culture, and being at ease talking about our own mistakes is a significant part of that.
+In the event that you have bad news to bring me - please bring it sooner rather than later. This gives us both the opportunity to take the right corrective actions faster. I can also promise that I'll be understanding even when you feel you have made mistakes. I'm a big believer in psychological safety as an enabler to a constructive engineering culture, and being at ease talking about our own mistakes is a significant part of that.
 
 ### Work/life balance
 
-I am convinced that in order to get the most from ourselves during our working lives, it's important that we all take adequate time to recharge in between. As a manager, I'm always listening for signals of "burnout" in my teams, and encouraging team members to make good use of their annual leave allowance to mitigate. Of course, one of the best ways of encouraging sustainable working behaviours is by modelling them myself – so you can expect me to take at least two longer breaks (at least a week long) per year, and during that time I'll be planning to minimise my contact. Apart from a desire to "recharge my batteries", this also creates great conditions to build resilience within my teams. I don't want any team members – myself included – to be singularly depended upon for critical operations. 
+I am convinced that in order to get the most from ourselves during our working lives, it's important that we all take adequate time to recharge in between. As a manager, I'm always listening for signals of "burnout" in my teams, and encouraging team members to make good use of their annual leave allowance to mitigate. Of course, one of the best ways of encouraging sustainable working behaviours is by modelling them myself – so you can expect me to take at least two longer breaks (at least a week long) per year, and during that time I'll be planning to minimise my contact. Apart from a desire to "recharge my batteries", this also creates great conditions to build resilience within my teams. I don't want any team members – myself included – to be singularly indispensable for critical operations. 
 
 ### Outside of work
 
