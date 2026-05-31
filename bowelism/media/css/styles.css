@@ -214,6 +214,19 @@ h3 {
   height: 1rem;
 }
 
+.back-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--base1);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--blue);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .content-card {
