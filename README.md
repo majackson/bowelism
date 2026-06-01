@@ -6,6 +6,8 @@ A small Django site that streams its own nginx access logs back to the browser, 
 
 The project takes its name from [Bowellism](https://en.wikipedia.org/wiki/Bowellism), an architectural style in which a building's guts — pipes, cabling, ducts, lift shafts — are pulled to the outside of the main structure. The practical effect is more usable interior space; the more striking effect is aesthetic.
 
+![Lloyd's building in London, an example of bowellist architecture.](bowelism/media/img/lloyds_building.jpg)
+
 After reading about it, I wondered what an equivalent "bowellist" computer system might look like, with the source code, logging, and traceback/debug data all visible from the outside. I scaled that down to just the logging and built this site around it. When the page loads it opens a websocket back to the server and immediately receives the last 60 lines of the nginx access log; each new request as it lands streams further lines onto the page. Including yours.
 
 ## Architecture
