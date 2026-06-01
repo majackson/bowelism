@@ -11,3 +11,4 @@ static/
 
 production.env
 .env
+.env.deploy
