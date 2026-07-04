@@ -24,4 +24,7 @@ jobs:
             set -e
             cd ~/bowelism
             git pull --ff-only
-            docker compose up -d --build
+            docker compose build
+            docker compose run --rm --no-deps web \
+              bash -c "source ~/.venvs/bowelismvenv/bin/activate && python manage.py collectstatic --no-input"
+            docker compose up -d
