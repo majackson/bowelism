@@ -7,7 +7,7 @@ Jinja2==3.1.6
 setuptools==82.0.1
 channels==4.3.2
 channels-redis==4.3.0
-daphne==4.2.1
+daphne==4.2.2
 watchdog==6.0.0
 pygtail==0.14.0
 django-markdown-deux==1.0.6
