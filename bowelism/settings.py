@@ -76,7 +76,10 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis", 6379)],
+            # socket_timeout must be disabled: redis-py >= 8.0 defaults it to 5s,
+            # which races channels_redis' own 5s BZPOPMIN timeout and kills the
+            # consumer with a TimeoutError whenever the log stream goes quiet.
+            "hosts": [{"host": "redis", "port": 6379, "socket_timeout": None}],
         },
     },
 }
